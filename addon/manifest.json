@@ -11,7 +11,7 @@
   ],
   "browser_action": {
     "default_icon": "icons/history-32.png",
-    "default_title": "Left Pad",
+    "default_title": "history",
     "default_popup": "popup/left-pad.html",
     "browser_style": true
   },
