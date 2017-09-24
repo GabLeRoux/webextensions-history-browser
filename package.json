@@ -1,15 +1,16 @@
 {
-  "name": "webpack-webextension",
+  "name": "webextensions-history-browse",
   "version": "1.0.0",
-  "description": "A minimal example of how to use npm modules from within a WebExtension.",
+  "description": "Browse your firefox history like a boss",
   "scripts": {
     "test": "eslint .",
     "lint": "eslint .",
     "build": "webpack"
   },
-  "license": "MPL-2.0",
+  "license": "MIT",
   "devDependencies": {
-    "webpack": "^2.3.2"
+    "webpack": "^2.3.2",
+    "babel-eslint": "^7.2.3"
   },
   "dependencies": {
     "left-pad": "^1.1.1"
