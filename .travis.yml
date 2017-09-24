@@ -1,3 +1,11 @@
 language: node_js
 node_js: stable
 sudo: false
+
+script:
+  - npm run build
+  - npm run test
+
+cache:
+  directories:
+    - "node_modules"
