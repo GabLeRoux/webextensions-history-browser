@@ -1,2 +1,9 @@
+# dependencies
 node_modules
-addon
+
+# intellij
+.idea
+/*.iml
+
+/addon/background_scripts/
+/addon/popup/
