@@ -1,6 +1,6 @@
 # WebExtensions History Browser [![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
 
-![history-browser-webextensions-readme](resources/history-browser-webextensions-readme.png)
+![webextensions-history-browser-readme](resources/webextensions-history-browser-readme.png)
 
 A simple firefox plugin that helps you browse your history because firefox default history browser doesn't let you filter or sort based on dates as of September 2017 and other extensions that can do it aren't compatible with Firefox anymore.
 
