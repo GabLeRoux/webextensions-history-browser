@@ -1,4 +1,4 @@
-# WebExtension history browser [![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
+# WebExtensions History Browser [![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
 
 ![history-browser-webextensions-readme](resources/history-browser-webextensions-readme.png)
 
