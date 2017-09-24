@@ -10,7 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "webpack": "^2.3.2",
-    "babel-eslint": "^7.2.3"
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1"
   },
   "dependencies": {
     "left-pad": "^1.1.1"
