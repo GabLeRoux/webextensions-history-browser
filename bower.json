@@ -1,0 +1,17 @@
+{
+  "name": "webextensions-history-browse",
+  "description": "Browse your firefox history like a boss.",
+  "main": "",
+  "authors": [
+    "Gabriel Le Breton <lebreton.gabriel@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GabLeRoux/webextensions-history-browser",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
