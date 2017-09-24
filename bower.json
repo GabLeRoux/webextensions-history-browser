@@ -13,5 +13,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "datatables": "^1.10.16",
+    "bootstrap-daterangepicker": "^2.1.25"
+  }
 }

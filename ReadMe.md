@@ -11,6 +11,7 @@ A simple firefox plugin that helps you browse your history because firefox defau
 - [ ] Display number of visits per page
 - [ ] Add a datetime picker range to filter by dates
 - [ ] Add page title search
+- [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 
 ## How to build it
 
@@ -21,7 +22,7 @@ npm run build
 
 The WebExtension in the [addon](addon/) folder should now work.
 
-## Live-development
+## TODO: Live-development
 
 As well as watching the folder with your `manifest.json` in it, you will also have to run `webpack` in **watch mode**. You can use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
 
