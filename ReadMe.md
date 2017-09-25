@@ -2,7 +2,9 @@
 
 ![webextensions-history-browser-readme](resources/webextensions-history-browser-readme.png)
 
-A simple firefox plugin that helps you browse your history because firefox default history browser doesn't let you filter or sort based on dates as of September 2017 and other extensions that can do it aren't compatible with Firefox anymore.
+**Simple browser extension that helps you browse history like a boss.**
+
+Firefox's default history browser is uncool. It doesn't let you filter or sort by dates as of September 2017. Other extensions that can do it aren't compatible with Firefox anymore and or aren't open source.
 
 ## Preview
 
@@ -13,10 +15,10 @@ A simple firefox plugin that helps you browse your history because firefox defau
 - [ ] Add a datetime picker range to filter by dates (library already installed)
 - [ ] Add a setting for the date format for `Last visit time` column
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
-- [ ] Add minification process to webpack config
 - [ ] Improve title search by using `browser.history` query
 - [ ] Release on the firefox addons page
 - [ ] Load all libraries from webpack with `require` instead of html tags
+- [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
 - [x] Format `Last visit time` column
 - [x] Display history in a table
 - [x] Sort history by date
@@ -38,9 +40,28 @@ npm run build
 
 The WebExtension in the [addon](addon/) folder should now work.
 
-## TODO: Live-development
+## Live-development
 
-As well as watching the folder with your `manifest.json` in it, you will also have to run `webpack` in **watch mode**. You can use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
+Run `webpack` in **watch mode**. 
+
+```bash
+webpack -w
+```
+
+## Release
+
+This will need some improvements, but here are the notes I took:
+
+```bash
+npm i && bower i
+webpack -p
+cd addon
+zip -r webextensions-history-browser.zip ./*
+```
+
+## Contributions and Feature Requests
+
+Sure can do! PRs are welcome :v:. Feel free to [open issues](https://github.com/GabLeRoux/webextensions-history-browser/issues).
 
 ## License
 

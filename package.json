@@ -1,7 +1,7 @@
 {
-  "name": "webextensions-history-browse",
+  "name": "webextensions-history-browser",
   "version": "1.0.0",
-  "description": "Browse your firefox history like a boss.",
+  "description": "Browse your browser history like a boss.",
   "scripts": {
     "test": "eslint .",
     "lint": "eslint .",

@@ -1,6 +1,6 @@
 {
-  "name": "webextensions-history-browse",
-  "description": "Browse your firefox history like a boss.",
+  "name": "webextensions-history-browser",
+  "description": "Browse your browser history like a boss.",
   "main": "",
   "authors": [
     "Gabriel Le Breton <lebreton.gabriel@gmail.com>"
