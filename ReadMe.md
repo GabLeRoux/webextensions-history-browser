@@ -45,7 +45,7 @@ The WebExtension in the [addon](addon/) folder should now work.
 Run `webpack` in **watch mode**. 
 
 ```bash
-webpack -w
+npm run watch
 ```
 
 ## Release
