@@ -17,7 +17,7 @@
   },
   "background": {
     "scripts": [
-      "background_scripts/main.min.js"
+      "background.js"
     ]
   }
 }
