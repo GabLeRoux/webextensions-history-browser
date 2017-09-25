@@ -1,5 +1,4 @@
 require('../css/main.css');
-require('datatables/media/js/jquery.dataTables');
 moment = require('moment');
 
 let maxResult = 5000;
@@ -60,7 +59,7 @@ function build_table(historyItems) {
             historyItem.typedCount || "",
         ])
     }
-    $('#history').DataTable({
+    jQuery('#history').DataTable({
         destroy: true,
         data: data,
         columns: columns,
@@ -76,8 +75,8 @@ function build_table(historyItems) {
             {
                 // last visit time format
                 // todo: try to use this instead:
-                // render: $.fn.dataTable.render.moment('MMMM Do YYYY, h:mm:ss'),
-                // I'm always getting "TypeError: $.fn.dataTable.render.moment is not a function" no matter how I try
+                // render: jQuery.fn.dataTable.render.moment('MMMM Do YYYY, h:mm:ss'),
+                // I'm always getting "TypeError: jQuery.fn.dataTable.render.moment is not a function" no matter how I try
                 render: function (data, type, row) {
                     return moment(data).format(default_datetime_format);
                 },
@@ -90,9 +89,9 @@ function build_table(historyItems) {
     });
 }
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
     load_history(build_table);
-    $('#refresh-list').click(function (e) {
+    jQuery('#refresh-list').click(function (e) {
         e.preventDefault();
         load_history(build_table);
     })
