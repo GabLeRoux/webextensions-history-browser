@@ -15,8 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
     "datatables": "^1.10.16",
-    "bootstrap-daterangepicker": "^2.1.25"
+    "bootstrap-daterangepicker": "^2.1.25",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
   }
 }
