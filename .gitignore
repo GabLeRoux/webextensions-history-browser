@@ -9,3 +9,4 @@ node_modules
 /addon/popup/
 addon/bower_components/
 addon/js/
+addon/background.js
