@@ -1,5 +1,5 @@
 require('../css/main.css');
-moment = require('moment');
+let moment = require('moment');
 
 let maxResult = 5000;
 let default_datetime_format = 'l h:mm:ss';
@@ -49,7 +49,7 @@ function build_table(historyItems) {
     // number. The number of times the user has navigated to this page by typing in the address.
     //
     // todo: verify browser for typedCount compatibility
-    for (historyItem of historyItems) {
+    for (let historyItem of historyItems) {
         data.push([
             historyItem.id || "",
             historyItem.url || "",

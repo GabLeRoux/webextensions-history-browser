@@ -18,6 +18,9 @@
     "webpack": "^2.3.2"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
     "bootstrap-daterangepicker": "^2.1.25",
     "left-pad": "^1.1.1"
   }
