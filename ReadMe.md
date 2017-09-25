@@ -4,21 +4,28 @@
 
 **Simple browser extension that helps you browse history like a boss.**
 
-Firefox's default history browser is uncool. It doesn't let you filter or sort by dates as of September 2017. Other extensions that can do it aren't compatible with Firefox anymore and or aren't open source.
+Firefox's default history sidebar is limited and the history browsing popup would benefit from some more features. It doesn't let you filter easily by date range as of September 2017. Other extensions that can do it aren't compatible with  **Firefox 57+** anymore, only work in firefox and/or aren't open source. This extension tries to solve all of this :rocket:
 
 ## Preview
 
 ![WebExtensions History Browser preview](resources/webextensions-history-browser-screenshot.png)
 
+## Key features
+
+- [x] Search through **all** history
+- [x] Search in date column
+- [x] Sort columns
+
 ## TODO
 
-- [ ] Add a datetime picker range to filter by dates (library already installed)
+- [ ] **Add a datetime picker range to filter by dates (library already installed)**
 - [ ] Add a setting for the date format for `Last visit time` column
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 - [ ] Improve title search by using `browser.history` query
 - [ ] Release on the firefox addons page
 - [ ] Load all libraries from webpack with `require` instead of html tags
 - [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
+- [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
 - [x] Format `Last visit time` column
 - [x] Display history in a table
 - [x] Sort history by date
@@ -26,7 +33,6 @@ Firefox's default history browser is uncool. It doesn't let you filter or sort b
 - [x] Add page title search
 - [x] Create a logo
 - [x] Install [bootstrap-daterangepicker](http://www.daterangepicker.com/)
-- [x] Run functions in `background.js` script
 - [x] Setup [datatables](https://datatables.net/) for minimal out of the box filtering and column sorting
 - [x] Add some dark style using [bootswatch's slate bootstrap theme](https://bootswatch.com/slate/)
 - [x] Create a basic table layout
