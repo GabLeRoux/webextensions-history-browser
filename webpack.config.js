@@ -2,12 +2,22 @@ const path = require("path");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    context: __dirname,
+    devtool: "source-map",
     entry: {
         js: "./src/js/history.js"
     },
     output: {
         path: path.resolve(__dirname, 'addon'),
-        filename: "[name]/main.min.js"
+        filename: "[name]/bundle.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
     },
     plugins: [
         new CopyWebpackPlugin([

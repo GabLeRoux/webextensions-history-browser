@@ -12,7 +12,9 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.7",
     "eslint": "^4.4.1",
+    "style-loader": "^0.18.2",
     "webpack": "^2.3.2"
   },
   "dependencies": {
