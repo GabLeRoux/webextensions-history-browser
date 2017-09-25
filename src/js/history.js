@@ -1,6 +1,10 @@
 require('../css/main.css');
+require('datatables/media/js/jquery.dataTables');
+moment = require('moment');
 
 let maxResult = 5000;
+let default_datetime_format = 'l h:mm:ss';
+
 let columns = [
     {title: "id"},
     {title: "Url"},
@@ -64,13 +68,23 @@ function build_table(historyItems) {
         columnDefs: [
             {
                 // make url column clickable
-                "render": function (data, type, row) {
+                render: function (data, type, row) {
                     return '<a class="break-all" href="' + data + '" target="_blank">' + data + '</a>';
                 },
-                "targets": 1
+                targets: 1
             },
-            {"visible": false, "targets": [0]}, // hides id column
-            {"visible": false, "targets": [5]} // hides typedCount column
+            {
+                // last visit time format
+                // todo: try to use this instead:
+                // render: $.fn.dataTable.render.moment('MMMM Do YYYY, h:mm:ss'),
+                // I'm always getting "TypeError: $.fn.dataTable.render.moment is not a function" no matter how I try
+                render: function (data, type, row) {
+                    return moment(data).format(default_datetime_format);
+                },
+                targets: 3
+            },
+            {visible: false, targets: [0]}, // hides id column
+            {visible: false, targets: [5]} // hides typedCount column
         ],
         order: [[3, "desc"]] // default ordering on last visit
     });

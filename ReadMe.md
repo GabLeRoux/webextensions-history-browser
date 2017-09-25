@@ -11,12 +11,13 @@ A simple firefox plugin that helps you browse your history because firefox defau
 ## TODO
 
 - [ ] Add a datetime picker range to filter by dates (library already installed)
-- [ ] Format `Last visit time` column
 - [ ] Add a setting for the date format for `Last visit time` column
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 - [ ] Add minification process to webpack config
 - [ ] Improve title search by using `browser.history` query
 - [ ] Release on the firefox addons page
+- [ ] Load all libraries from webpack with `require` instead of html tags
+- [x] Format `Last visit time` column
 - [x] Display history in a table
 - [x] Sort history by date
 - [x] Display number of visits per page
