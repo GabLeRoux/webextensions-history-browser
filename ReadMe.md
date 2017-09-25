@@ -26,6 +26,7 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 - [ ] Load all libraries from webpack with `require` instead of html tags
 - [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
 - [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
+- [ ] [Export table data](https://datatables.net/reference/button/excel)
 - [x] Format `Last visit time` column
 - [x] Display history in a table
 - [x] Sort history by date
