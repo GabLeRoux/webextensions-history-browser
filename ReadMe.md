@@ -4,18 +4,23 @@
 
 A simple firefox plugin that helps you browse your history because firefox default history browser doesn't let you filter or sort based on dates as of September 2017 and other extensions that can do it aren't compatible with Firefox anymore.
 
+## Preview
+
+![WebExtensions History Browser preview](resources/webextensions-history-browser-screenshot.png)
+
 ## TODO
 
-- [ ] Solve the `TypeError: Components.classes is undefined` error in `
-background.js`
-- [ ] Display history in a table
-- [ ] Sort history by date
-- [ ] Display number of visits per page
 - [ ] Add a datetime picker range to filter by dates (library already installed)
-- [ ] Add page title search
+- [ ] Format `Last visit time` column
+- [ ] Add a setting for the date format for `Last visit time` column
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 - [ ] Add minification process to webpack config
+- [ ] Improve title search by using `browser.history` query
 - [ ] Release on the firefox addons page
+- [x] Display history in a table
+- [x] Sort history by date
+- [x] Display number of visits per page
+- [x] Add page title search
 - [x] Create a logo
 - [x] Install [bootstrap-daterangepicker](http://www.daterangepicker.com/)
 - [x] Run functions in `background.js` script
