@@ -3,18 +3,24 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="./bower_components/datatables/media/js/jquery.js"></script>
-    <script src="./bower_components/datatables/media/js/dataTables.bootstrap.min.js"></script>
-    <script src="./bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./bower_components/datatables/media/css/dataTables.bootstrap.min.css"/>
-    <link rel="stylesheet" href="./style/slate-bootstrap.min.css"/>
+    <script src="bower_components/datatables/media/js/jquery.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/datatables/media/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css"/>
+    <link rel="stylesheet" href="style/slate-bootstrap.min.css"/>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <h3>History Browser</h3>
     <p>Browse your firefox history like a boss.</p>
-    <table id="hisotry" class="display nowrap" width="100%" cellspacing="0">
+
+    <a href="#" id="refresh-list" class="btn btn-info btn-sm">Refresh</a>
+    <br /><br />
+
+    <table id="history" class="table table-striped table-bordered display nowrap" width="100%" cellspacing="0">
         <thead>
         <tr>
             <th>Title</th>
@@ -27,7 +33,7 @@
     </table>
 </div>
 
-<script src="./js/main.min.js"></script>
+<script src="js/main.min.js"></script>
 
 </body>
 </html>
