@@ -6,12 +6,22 @@ A simple firefox plugin that helps you browse your history because firefox defau
 
 ## TODO
 
+- [ ] Solve the `TypeError: Components.classes is undefined` error in `
+background.js`
 - [ ] Display history in a table
 - [ ] Sort history by date
 - [ ] Display number of visits per page
-- [ ] Add a datetime picker range to filter by dates
+- [ ] Add a datetime picker range to filter by dates (library already installed)
 - [ ] Add page title search
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
+- [ ] Add minification process to webpack config
+- [ ] Release on the firefox addons page
+- [x] Create a logo
+- [x] Install [bootstrap-daterangepicker](http://www.daterangepicker.com/)
+- [x] Run functions in `background.js` script
+- [x] Setup [datatables](https://datatables.net/) for minimal out of the box filtering and column sorting
+- [x] Add some dark style using [bootswatch's slate bootstrap theme](https://bootswatch.com/slate/)
+- [x] Create a basic table layout
 
 ## How to build it
 
