@@ -64,7 +64,7 @@ This will need some improvements, but here are the notes I took:
 
 ```bash
 npm i
-webpack -p
+npm run build
 npm run lint
 cd addon
 zip -r webextensions-history-browser.zip ./*
