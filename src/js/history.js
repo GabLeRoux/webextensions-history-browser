@@ -72,7 +72,7 @@ function build_table(historyItems) {
             {
                 // make url column clickable
                 render: function (data, type, row) {
-                    return '<a class="break-all" href="' + data + '" target="_blank">' + data + '</a>';
+                    return '<a href="' + data + '" target="_blank">' + data + '</a>';
                 },
                 targets: 1
             },
