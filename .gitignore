@@ -9,3 +9,4 @@ node_modules
 /addon/popup/
 /addon/js/
 /addon/background.js
+/addon/fonts/

@@ -9,8 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'addon'),
-        filename: "[name]/bundle.js",
-        publicPath: "/"
+        filename: "[name]/bundle.js"
     },
     module: {
         rules: [
@@ -27,13 +26,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url-loader",
-                options: {
-                    limit: 50000,
-                    mimetype: "application/font-woff",
-                    name: "./fonts/[name].[ext]",
-                },
+                test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?name=fonts/[name].[ext]"
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -54,6 +48,7 @@ module.exports = {
             // I had a hard time figuring this out, but webpack was breaking my background script...
             // todo: investigate this and pass background.js to the js pipeline instead
             {from: 'src/js/background.js', to: 'background.js'},
+            {from: 'node_modules/bootstrap/fonts', to: 'fonts'},
         ])
     ]
 };
