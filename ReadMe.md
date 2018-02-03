@@ -4,6 +4,8 @@
 
 **Simple browser extension that helps you browse history like a boss.**
 
+**[Donwload Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/webextensions-history-browser/)** :v:
+
 Firefox's default history sidebar is limited and the history browsing popup would benefit from some more features. It doesn't let you filter easily by date range as of September 2017. Other extensions that can do it aren't compatible with  **Firefox 57+** anymore, only work in firefox and/or aren't open source. This extension tries to solve all of this :rocket:
 
 ## Preview
@@ -18,7 +20,6 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 
 ## TODO
 
-- [ ] Release on the firefox addons page (See [#2](https://github.com/GabLeRoux/webextensions-history-browser/issues/2))
 - [ ] **Add a datetime picker range to filter by dates (library already installed)**
 - [ ] Add a setting for the date format for `Last visit time` column (See [#3](https://github.com/GabLeRoux/webextensions-history-browser/issues/3))
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
@@ -27,6 +28,7 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 - [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
 - [ ] [Export table data](https://datatables.net/reference/button/excel)
 - [ ] Allow resizing columns, maybe use something like [jeffreydwalter/ColReorderWithResize](https://github.com/jeffreydwalter/ColReorderWithResize) ([see it in action](https://www.gyrocode.com/articles/jquery-datatables-column-reordering-and-resizing/))
+- [x] Release on the firefox addons page (See [#2](https://github.com/GabLeRoux/webextensions-history-browser/issues/2))
 - [x] Load all libraries from webpack with `require` instead of html tags
 - [x] Format `Last visit time` column
 - [x] Display history in a table
