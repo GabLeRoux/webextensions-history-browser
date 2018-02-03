@@ -1,5 +1,5 @@
 const path = require("path");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: __dirname,
@@ -9,7 +9,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'addon'),
-        filename: "[name]/bundle.js"
+        filename: "[name]/bundle.js",
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -24,6 +25,26 @@ module.exports = {
                 query: {
                     presets: ['env']
                 }
+            },
+            {
+                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "url-loader",
+                options: {
+                    limit: 50000,
+                    mimetype: "application/font-woff",
+                    name: "./fonts/[name].[ext]",
+                },
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
