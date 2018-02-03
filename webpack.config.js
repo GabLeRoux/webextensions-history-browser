@@ -1,5 +1,5 @@
 const path = require("path");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: __dirname,
@@ -24,6 +24,21 @@ module.exports = {
                 query: {
                     presets: ['env']
                 }
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?name=fonts/[name].[ext]"
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -33,6 +48,7 @@ module.exports = {
             // I had a hard time figuring this out, but webpack was breaking my background script...
             // todo: investigate this and pass background.js to the js pipeline instead
             {from: 'src/js/background.js', to: 'background.js'},
+            {from: 'node_modules/bootstrap/fonts', to: 'fonts'},
         ])
     ]
 };

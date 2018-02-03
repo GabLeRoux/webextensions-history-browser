@@ -1,5 +1,9 @@
-require('../css/main.css');
+require('datatables.net-bs');
+require('datatables.net-bs/css/dataTables.bootstrap.css');
 let moment = require('moment');
+let jQuery = require('jquery');
+
+require('../css/main.css');
 
 let maxResult = 5000;
 let default_datetime_format = 'l h:mm:ss';
@@ -59,7 +63,7 @@ function build_table(historyItems) {
             historyItem.typedCount || "",
         ])
     }
-    jQuery('#history').DataTable({
+    jQuery('#history').dataTable({
         destroy: true,
         data: data,
         columns: columns,
@@ -68,7 +72,7 @@ function build_table(historyItems) {
             {
                 // make url column clickable
                 render: function (data, type, row) {
-                    return '<a class="break-all" href="' + data + '" target="_blank">' + data + '</a>';
+                    return '<a href="' + data + '" target="_blank">' + data + '</a>';
                 },
                 targets: 1
             },
