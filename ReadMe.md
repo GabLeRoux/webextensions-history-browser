@@ -18,15 +18,16 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 
 ## TODO
 
+- [ ] Release on the firefox addons page (See [#2](https://github.com/GabLeRoux/webextensions-history-browser/issues/2))
 - [ ] **Add a datetime picker range to filter by dates (library already installed)**
-- [ ] Add a setting for the date format for `Last visit time` column
+- [ ] Add a setting for the date format for `Last visit time` column (See [#3](https://github.com/GabLeRoux/webextensions-history-browser/issues/3))
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 - [ ] Improve title search by using `browser.history` query
-- [ ] Release on the firefox addons page
-- [ ] Load all libraries from webpack with `require` instead of html tags
 - [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
 - [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
 - [ ] [Export table data](https://datatables.net/reference/button/excel)
+- [ ] Allow resizing columns, maybe use something like [jeffreydwalter/ColReorderWithResize](https://github.com/jeffreydwalter/ColReorderWithResize) ([see it in action](https://www.gyrocode.com/articles/jquery-datatables-column-reordering-and-resizing/))
+- [x] Load all libraries from webpack with `require` instead of html tags
 - [x] Format `Last visit time` column
 - [x] Display history in a table
 - [x] Sort history by date
@@ -60,8 +61,9 @@ npm run watch
 This will need some improvements, but here are the notes I took:
 
 ```bash
-npm i && bower i
+npm i
 webpack -p
+npm run lint
 cd addon
 zip -r webextensions-history-browser.zip ./*
 ```
