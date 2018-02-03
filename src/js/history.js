@@ -1,8 +1,9 @@
 require('../css/main.css');
+
 let moment = require('moment');
 
 let maxResult = 5000;
-let default_datetime_format = 'l h:mm:ss';
+let default_datetime_format = 'YYYY-MM-DD H:mm:ss';
 
 let columns = [
     {title: "id"},
@@ -28,6 +29,49 @@ function load_history(callback, query) {
     var searching = browser.history.search(query);
     searching.then(
         callback
+    );
+}
+
+function setup_daterangepicker() {
+    // $('input[name="daterange"]').daterangepicker(
+    //     {
+    //         locale: {
+    //             format: 'YYYY-MM-DD'
+    //         },
+    //         startDate: '2013-01-01',
+    //         endDate: '2013-12-31'
+    //     },
+    //     function (start, end, label) {
+    //         update_datatables_daterange(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));
+    //         jQuery('#history').draw()
+    //     });
+}
+
+function setup_datatables_daterange() {
+    // Date range filter
+    minDateFilter = "";
+    maxDateFilter = "";
+
+    $.fn.dataTableExt.afnFiltering.push(
+        function (oSettings, aData, iDataIndex) {
+            if (typeof aData._date == 'undefined') {
+                aData._date = new Date(aData[0]).getTime();
+            }
+
+            if (minDateFilter && !isNaN(minDateFilter)) {
+                if (aData._date < minDateFilter) {
+                    return false;
+                }
+            }
+
+            if (maxDateFilter && !isNaN(maxDateFilter)) {
+                if (aData._date > maxDateFilter) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     );
 }
 
@@ -87,12 +131,10 @@ function build_table(historyItems) {
         ],
         order: [[3, "desc"]] // default ordering on last visit
     });
+    setup_datatables_daterange();
 }
 
 jQuery(document).ready(function () {
+    setup_daterangepicker();
     load_history(build_table);
-    jQuery('#refresh-list').click(function (e) {
-        e.preventDefault();
-        load_history(build_table);
-    })
 });
