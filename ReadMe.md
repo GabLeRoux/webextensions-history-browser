@@ -17,6 +17,8 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 - [x] Search through **all** history
 - [x] Search in date column
 - [x] Sort columns
+- [x] Resize columns
+- [x] Reorder columns
 
 ## TODO
 
@@ -27,7 +29,7 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 - [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
 - [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
 - [ ] [Export table data](https://datatables.net/reference/button/excel)
-- [ ] Allow resizing columns, maybe use something like [jeffreydwalter/ColReorderWithResize](https://github.com/jeffreydwalter/ColReorderWithResize) ([see it in action](https://www.gyrocode.com/articles/jquery-datatables-column-reordering-and-resizing/))
+- [x] Allow resizing columns, maybe use something like [jeffreydwalter/ColReorderWithResize](https://github.com/jeffreydwalter/ColReorderWithResize) ([see it in action](https://www.gyrocode.com/articles/jquery-datatables-column-reordering-and-resizing/)) (See [#7](https://github.com/GabLeRoux/webextensions-history-browser/issues/7))
 - [x] Release on the firefox addons page (See [#2](https://github.com/GabLeRoux/webextensions-history-browser/issues/2))
 - [x] Load all libraries from webpack with `require` instead of html tags
 - [x] Format `Last visit time` column
