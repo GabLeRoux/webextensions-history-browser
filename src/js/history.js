@@ -1,5 +1,6 @@
 require('datatables.net-bs');
 require('datatables.net-bs/css/dataTables.bootstrap.css');
+require('./ColReorderWithResize');
 let moment = require('moment');
 let jQuery = require('jquery');
 
@@ -64,6 +65,7 @@ function build_table(historyItems) {
         ])
     }
     jQuery('#history').dataTable({
+        sDom: "Rlfrtip",
         destroy: true,
         data: data,
         columns: columns,
