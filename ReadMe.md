@@ -62,15 +62,20 @@ npm run watch
 
 ## Release
 
-This will need some improvements, but here are the notes I took:
+This will need some improvements, but here are personal notes I took:
 
 ```bash
 npm i
+npm version patch
+# todo: update addon/manifest.json automatically based on package.json, for now, update the file manually
 npm run build
 npm run lint
+git push --tags
 cd addon
 zip -r webextensions-history-browser.zip ./*
 ```
+
+Visit https://addons.mozilla.org/en-US/developers/addon/webextensions-history-browser/versions/submit/
 
 ## Contributions and Feature Requests
 
