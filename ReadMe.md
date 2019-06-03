@@ -1,4 +1,6 @@
-# WebExtensions History Browser [![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
+# WebExtensions History Browser 
+
+[![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
 
 ![webextensions-history-browser-readme](resources/webextensions-history-browser-readme.png)
 
@@ -6,7 +8,7 @@
 
 **[Download Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/webextensions-history-browser/)** :v:
 
-Firefox's default history sidebar is limited and the history browsing popup would benefit from some more features. It doesn't let you filter easily by date range as of September 2017. Other extensions that can do it aren't compatible with  **Firefox 57+** anymore, only work in firefox and/or aren't open source. This extension tries to solve all of this :rocket:
+Firefox's default history sidebar is limited and the history browsing popup would benefit from some more features. It doesn't let you filter easily by date range as of September 2017. Other extensions that can do it aren't compatible with  **Firefox 57+** anymore, only work in firefox and/or aren't open source. This extension tries to solve all of these :rocket:
 
 ## Preview
 
@@ -19,16 +21,26 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 - [x] Sort columns
 - [x] Resize columns
 - [x] Reorder columns
+- [x] Firefox and Chrome support
 
 ## TODO
 
+Feel free to send merge requests if you'd like to try and solve some of these :v:
+
+- [ ] Add tests 
 - [ ] **Add a datetime picker range to filter by dates (library already installed)**
 - [ ] Add a setting for the date format for `Last visit time` column (See [#3](https://github.com/GabLeRoux/webextensions-history-browser/issues/3))
 - [ ] Convert icon to svg (it's already a vector based icon in `resources`)
 - [ ] Improve title search by using `browser.history` query
-- [ ] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow.
-- [ ] Test on other browsers such as *Google Chrome* and *Microsoft Edge*
 - [ ] [Export table data](https://datatables.net/reference/button/excel)
+- [ ] Test on *Microsoft Edge*
+- [ ] Use a changelog system
+- [ ] Deploy the Chrome extension
+
+## Done
+
+- [x] Have webpack watch for `manifest.json` and use the [webpack-webext-plugin](https://github.com/rpl/webpack-webext-plugin) to simplify the workflow. Edit: I used [samuelsimoes/chrome-extension-webpack-boilerplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate) and adapted webpack plugin to my needs
+- [x] Test on other browsers such as *Google Chrome*
 - [x] Allow resizing columns, maybe use something like [jeffreydwalter/ColReorderWithResize](https://github.com/jeffreydwalter/ColReorderWithResize) ([see it in action](https://www.gyrocode.com/articles/jquery-datatables-column-reordering-and-resizing/)) (See [#7](https://github.com/GabLeRoux/webextensions-history-browser/issues/7))
 - [x] Release on the firefox addons page (See [#2](https://github.com/GabLeRoux/webextensions-history-browser/issues/2))
 - [x] Load all libraries from webpack with `require` instead of html tags
@@ -47,17 +59,15 @@ Firefox's default history sidebar is limited and the history browsing popup woul
 
 ```bash
 npm install
-npm run build
+NODE_ENV=production npm run build
 ```
 
 The WebExtension in the [addon](addon/) folder should now work.
 
 ## Live-development
 
-Run `webpack` in **watch mode**. 
-
 ```bash
-npm run watch
+NODE_ENV=development npm run start
 ```
 
 ## Release
@@ -68,10 +78,9 @@ This will need some improvements, but here are personal notes I took:
 npm i
 npm version patch
 # todo: update addon/manifest.json automatically based on package.json, for now, update the file manually
-npm run build
-npm run lint
+NODE_ENV=production npm run build
 git push --tags
-cd addon
+cd build
 zip -r webextensions-history-browser.zip ./*
 ```
 

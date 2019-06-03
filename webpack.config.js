@@ -1,54 +1,105 @@
-const path = require("path");
-let CopyWebpackPlugin = require('copy-webpack-plugin');
+var webpack = require("webpack"),
+    path = require("path"),
+    fileSystem = require("fs"),
+    env = require("./utils/env"),
+    CleanWebpackPlugin = require("clean-webpack-plugin"),
+    CopyWebpackPlugin = require("copy-webpack-plugin"),
+    HtmlWebpackPlugin = require("html-webpack-plugin"),
+    WriteFilePlugin = require("write-file-webpack-plugin");
 
-module.exports = {
-    context: __dirname,
-    devtool: "source-map",
+// load the secrets
+var alias = {};
+
+var secretsPath = path.join(__dirname, ("secrets." + env.NODE_ENV + ".js"));
+
+var fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
+
+if (fileSystem.existsSync(secretsPath)) {
+    alias["secrets"] = secretsPath;
+}
+
+var options = {
+    mode: process.env.NODE_ENV || "development",
     entry: {
-        js: "./src/js/history.js"
+        // popup: path.join(__dirname, "src", "js", "popup.js"),
+        // options: path.join(__dirname, "src", "js", "options.js"),
+        background: path.join(__dirname, "src", "js", "background.js"),
+        history: path.join(__dirname, "src", "js", "history.js"),
+        css_main: path.join(__dirname, "src", "css", "main.css")
     },
     output: {
-        path: path.resolve(__dirname, 'addon'),
-        filename: "[name]/bundle.js"
+        path: path.join(__dirname, "build"),
+        filename: "[name].bundle.js"
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                loader: "style-loader!css-loader",
+                // exclude: /node_modules/
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['env']
-                }
+                test: new RegExp('\.(' + fileExtensions.join('|') + ')$'),
+                loader: "file-loader?name=[name].[ext]",
+                exclude: /node_modules/
             },
             {
-                test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file?name=fonts/[name].[ext]"
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192
-                        }
-                    }
-                ]
+                test: /\.html$/,
+                loader: "html-loader",
+                exclude: /node_modules/
             }
         ]
     },
+    resolve: {
+        alias: alias
+    },
     plugins: [
+        // clean the build folder
+        new CleanWebpackPlugin(["build"]),
+        // expose and write the allowed env vars on the compiled bundle
+        new webpack.EnvironmentPlugin(["NODE_ENV"]),
+        new CopyWebpackPlugin([{
+            from: "src/manifest.json",
+            transform: function (content, path) {
+                // generates the manifest file using the package.json informations
+                return Buffer.from(JSON.stringify({
+                    description: process.env.npm_package_description,
+                    version: process.env.npm_package_version,
+                    ...JSON.parse(content.toString())
+                }))
+            }
+        }]),
         new CopyWebpackPlugin([
-            // Fixes a problem where functions from a background packed with webpackBootstrap were not defined
-            // I had a hard time figuring this out, but webpack was breaking my background script...
-            // todo: investigate this and pass background.js to the js pipeline instead
-            {from: 'src/js/background.js', to: 'background.js'},
             {from: 'node_modules/bootstrap/fonts', to: 'fonts'},
-        ])
+            {from: 'src/css/slate-bootstrap.min.css', to: 'slate-bootstrap.min.css'},
+        ]),
+
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, "src", "popup.html"),
+        //     filename: "popup.html",
+        //     chunks: ["popup"]
+        // }),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, "src", "options.html"),
+        //     filename: "options.html",
+        //     chunks: ["options"]
+        // }),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, "src", "background.html"),
+        //     filename: "background.html",
+        //     chunks: ["background"]
+        // }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, "src", "history.html"),
+            filename: "history.html",
+            chunks: ["history", "css_main"]
+        }),
+        new WriteFilePlugin()
     ]
 };
+
+if (env.NODE_ENV === "development") {
+    options.devtool = "cheap-module-eval-source-map";
+}
+
+module.exports = options;

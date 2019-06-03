@@ -1,8 +1,11 @@
 require('datatables.net-bs');
 require('datatables.net-bs/css/dataTables.bootstrap.css');
 require('./ColReorderWithResize');
+
 let moment = require('moment');
 let jQuery = require('jquery');
+
+var browser = require("webextension-polyfill");
 
 require('../css/main.css');
 
@@ -24,16 +27,12 @@ function load_history(callback, query) {
         query = {
             text: "",
             startTime: 0,
-            endTime: new Date(),
+            // endTime: new Date(), // This fails on chrome for some reason
             maxResults: maxResult // todo: setting
         };
     }
-
     // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/history/search
-    var searching = browser.history.search(query);
-    searching.then(
-        callback
-    );
+    browser.history.search(query).then(callback);
 }
 
 function build_table(historyItems) {

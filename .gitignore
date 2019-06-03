@@ -1,12 +1,8 @@
-# dependencies
-node_modules
-
-# intellij
+# IDE: intellij
 .idea
-/*.iml
+*.iml
 
-/addon/background_scripts/
-/addon/popup/
-/addon/js/
-/addon/background.js
-/addon/fonts/
+# browser extension dependencies, secrets and artifacts
+node_modules
+build
+secrets.*.js

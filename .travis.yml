@@ -3,6 +3,7 @@ node_js: stable
 sudo: false
 
 script:
+  - npm run lint
   - npm run build
   - npm run test
 
