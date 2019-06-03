@@ -11,7 +11,7 @@ require('../css/main.css');
 
 let maxResult = 5000;
 // Refer to https://momentjs.com/ for available formats
-// empty one will default to ISO8601 :)
+// Empty string defaults to ISO8601 which is built to sort lexicographically
 let default_datetime_format = '';
 
 let columns = [
