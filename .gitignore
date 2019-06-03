@@ -4,5 +4,5 @@
 
 # browser extension dependencies, secrets and artifacts
 node_modules
-build
+dist
 secrets.*.js

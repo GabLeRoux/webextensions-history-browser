@@ -2,10 +2,11 @@ var webpack = require("webpack"),
     path = require("path"),
     fileSystem = require("fs"),
     env = require("./utils/env"),
-    CleanWebpackPlugin = require("clean-webpack-plugin"),
-    CopyWebpackPlugin = require("copy-webpack-plugin"),
     HtmlWebpackPlugin = require("html-webpack-plugin"),
     WriteFilePlugin = require("write-file-webpack-plugin");
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // load the secrets
 var alias = {};
@@ -25,10 +26,9 @@ var options = {
         // options: path.join(__dirname, "src", "js", "options.js"),
         background: path.join(__dirname, "src", "js", "background.js"),
         history: path.join(__dirname, "src", "js", "history.js"),
-        css_main: path.join(__dirname, "src", "css", "main.css")
     },
     output: {
-        path: path.join(__dirname, "build"),
+        path: path.join(__dirname, "dist"),
         filename: "[name].bundle.js"
     },
     module: {
@@ -54,8 +54,8 @@ var options = {
         alias: alias
     },
     plugins: [
-        // clean the build folder
-        new CleanWebpackPlugin(["build"]),
+        // clean the dist folder
+        new CleanWebpackPlugin(),
         // expose and write the allowed env vars on the compiled bundle
         new webpack.EnvironmentPlugin(["NODE_ENV"]),
         new CopyWebpackPlugin([{
@@ -67,11 +67,12 @@ var options = {
                     version: process.env.npm_package_version,
                     ...JSON.parse(content.toString())
                 }))
-            }
+            },
+            writeToDisk: true
         }]),
         new CopyWebpackPlugin([
-            {from: 'node_modules/bootstrap/fonts', to: 'fonts'},
-            {from: 'src/css/slate-bootstrap.min.css', to: 'slate-bootstrap.min.css'},
+            {from: 'node_modules/bootstrap/fonts', to: 'fonts', writeToDisk: true},
+            {from: 'src/css/slate-bootstrap.min.css', to: 'slate-bootstrap.min.css', writeToDisk: true},
         ]),
 
         // new HtmlWebpackPlugin({
@@ -92,7 +93,7 @@ var options = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src", "history.html"),
             filename: "history.html",
-            chunks: ["history", "css_main"]
+            chunks: ["history"]
         }),
         new WriteFilePlugin()
     ]
