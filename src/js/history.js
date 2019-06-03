@@ -10,7 +10,9 @@ var browser = require("webextension-polyfill");
 require('../css/main.css');
 
 let maxResult = 5000;
-let default_datetime_format = 'l h:mm:ss';
+// Refer to https://momentjs.com/ for available formats
+// empty one will default to ISO8601 :)
+let default_datetime_format = '';
 
 let columns = [
     {title: "id"},
