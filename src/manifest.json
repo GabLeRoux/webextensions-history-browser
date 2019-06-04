@@ -12,7 +12,7 @@
   ],
   "browser_action": {
     "default_icon": "history-32.png",
-    "default_title": "history",
+    "default_title": "History browser",
     "browser_style": true
   },
   "background": {
