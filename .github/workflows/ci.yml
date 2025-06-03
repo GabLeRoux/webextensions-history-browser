@@ -17,5 +17,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: NODE_ENV=production npm run build
+      - run: npm run build
+        env:
+          NODE_ENV: production
+          NODE_OPTIONS: --openssl-legacy-provider
       - run: npm test
