@@ -1,6 +1,6 @@
 # WebExtensions History Browser 
 
-[![Build Status](https://travis-ci.org/GabLeRoux/webextensions-history-browser.svg?branch=master)](https://travis-ci.org/GabLeRoux/webextensions-history-browser)
+[![CI](https://github.com/GabLeRoux/webextensions-history-browser/actions/workflows/ci.yml/badge.svg)](https://github.com/GabLeRoux/webextensions-history-browser/actions/workflows/ci.yml)
 
 ![webextensions-history-browser-readme](resources/webextensions-history-browser-readme.png)
 
