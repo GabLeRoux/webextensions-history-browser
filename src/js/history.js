@@ -60,7 +60,7 @@ function build_table(historyItems) {
             historyItem.id || "",
             historyItem.url || "",
             historyItem.title || "",
-            new Date(historyItem.lastVisitTime) || "",
+            historyItem.lastVisitTime ? new Date(historyItem.lastVisitTime) : "",
             historyItem.visitCount || "",
             historyItem.typedCount || "",
         ])
