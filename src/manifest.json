@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "History browser",
   "version": "1.0.2",
   "description": "Browse your firefox history like a boss.",
@@ -10,16 +10,14 @@
     "history",
     "tabs"
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "history-32.png",
-    "default_title": "History browser",
-    "browser_style": true
+    "default_title": "History browser"
   },
   "background": {
-    "scripts": [
-      "background.bundle.js",
-      "history.bundle.js"
-    ]
+    "service_worker": "background.bundle.js"
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

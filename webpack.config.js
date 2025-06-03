@@ -63,11 +63,12 @@ const options = {
             from: "src/manifest.json",
             transform: function (content, path) {
                 // generates the manifest file using the package.json informations
-                return Buffer.from(JSON.stringify({
+                const parsed = JSON.parse(content.toString());
+                const manifest = Object.assign({}, parsed, {
                     description: process.env.npm_package_description,
-                    version: process.env.npm_package_version,
-                    ...JSON.parse(content.toString())
-                }))
+                    version: process.env.npm_package_version
+                });
+                return Buffer.from(JSON.stringify(manifest));
             },
             writeToDisk: true
         }]),
