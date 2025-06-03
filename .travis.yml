@@ -3,7 +3,7 @@ node_js: stable
 sudo: false
 
 script:
-  - NODE_ENV=production npm run build
+  - NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider npm run build
   - npm run test
 
 cache:
