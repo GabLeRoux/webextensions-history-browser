@@ -6,7 +6,7 @@
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
     "test": "echo todo",
-    "lint": "eslint . && web-ext lint -s=addon"
+    "lint": "eslint . && web-ext lint -s=dist"
   },
   "license": "MIT",
   "devDependencies": {
@@ -20,7 +20,8 @@
     "html-loader": "0.5.5",
     "html-webpack-plugin": "3.2.0",
     "style-loader": "^0.23.1",
-    "webextension-polyfill": "^0.4.0",
+    "web-ext": "^8.7.1",
+    "webextension-polyfill": "^0.10.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.5.1",

@@ -6,6 +6,8 @@
 
 **Simple browser extension that helps you browse history like a boss.**
 
+**This version has been updated to use Manifest V3 for improved security and modern browser compatibility.**
+
 **[Download Firefox addon](https://addons.mozilla.org/en-US/firefox/addon/webextensions-history-browser/)** :v:
 
 Firefox's default history sidebar is limited and the history browsing popup would benefit from some more features. It doesn't let you filter easily by date range as of September 2017. Other extensions that can do it aren't compatible with  **Firefox 57+** anymore, only work in firefox and/or aren't open source. This extension tries to solve all of these :rocket:
